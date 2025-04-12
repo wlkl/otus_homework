@@ -1,6 +1,6 @@
 # ДЗ к уроку "Prometheus - Exporters, Service Discovery"
 
-В инфраструктуре имеется виртуальная машина с установленными на ней сервисами Nginx, Postgresql, Netbox.
+В инфраструктуре имеется виртуальная машина с установленными на ней Debian 12 и сервисами Nginx, Postgresql, Netbox.
 На нее установил prometheus-nginx-exporter, prometheus-postgres-exporter, prometheus-blackbox-exporter, prometheus-node-exporter.
 На nginx настроил stub_status, в postgres добавил пользователя с соответствующими правами, подправил конфиги экспортеров.
 На соседней виртуалке в Docker запустил контейнер с prometheus со следующим конфигом:
@@ -22,3 +22,5 @@ scrape_configs:
     static_configs:
       - targets: ["10.1.12.99:9187"]
 ```
+Результат работы:
+![изображение](https://github.com/user-attachments/assets/5fabd84f-a7f3-493f-994d-33bcbf97e61d)
