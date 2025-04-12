@@ -1,6 +1,5 @@
-# ДЗ к к уроку "Prometheus - Exporters, Service Discovery"
+# ДЗ к уроку "Prometheus - Exporters, Service Discovery"
 
-#### Исходное
 В инфраструктуре имеется виртуальная машина с установленными на ней сервисами Nginx, Postgresql, Netbox.
 На нее установил prometheus-nginx-exporter, prometheus-postgres-exporter, prometheus-blackbox-exporter, prometheus-node-exporter.
 На nginx настроил stub_status, в postgres добавил пользователя с соответствующими правами, подправил конфиги экспортеров.
