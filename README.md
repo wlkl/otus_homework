@@ -5,7 +5,7 @@
 На nginx настроил stub_status, в postgres добавил пользователя с соответствующими правами, подправил конфиги экспортеров.
 На соседней виртуалке в Docker запустил контейнер с prometheus со следующим конфигом:
 prometheus.yml
-```
+```yaml
 global:
   scrape_interval: 15s
 scrape_configs:
