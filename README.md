@@ -27,7 +27,9 @@ scrape_configs:
 
 # ДЗ к уроку Отказоустойчивость Prometheus, хранилища метрик для Prometheus
 На ВМ с prometheus установил victoriametrics, конфигурационного файла нет, создал юнит systemd, в нем запускается бинарник victoria-metrics-prod со следующими параметрами:
-`/usr/local/bin/victoria-metrics-prod -storageDataPath=/var/lib/victoria-metrics-data -httpListenAddr=127.0.0.1:8428 -retentionPeriod=2w`
+```shell
+/usr/local/bin/victoria-metrics-prod -storageDataPath=/var/lib/victoria-metrics-data -httpListenAddr=127.0.0.1:8428 -retentionPeriod=2w
+```
 Добавил в конфиг prometheus remote_write и external_labels:
 ```yaml
 global:
