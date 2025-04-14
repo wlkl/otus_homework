@@ -25,7 +25,7 @@ scrape_configs:
 Результат работы:
 ![изображение](https://github.com/user-attachments/assets/5fabd84f-a7f3-493f-994d-33bcbf97e61d)
 
-# ДЗ к уроку Отказоустойчивость Prometheus, хранилища метрик для Prometheus
+# ДЗ к уроку "Отказоустойчивость Prometheus, хранилища метрик для Prometheus"
 На ВМ с prometheus установил victoriametrics, конфигурационного файла нет, создал юнит systemd, в нем запускается бинарник victoria-metrics-prod со следующими параметрами:
 ```shell
 /usr/local/bin/victoria-metrics-prod -storageDataPath=/var/lib/victoria-metrics-data -httpListenAddr=127.0.0.1:8428 -retentionPeriod=2w
