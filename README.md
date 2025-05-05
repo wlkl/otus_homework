@@ -52,3 +52,34 @@ scrape_configs:
 remote_write:
   - url: http://localhost:8428/api/v1/write
 ```
+# ДЗ к уроку "Prometheus, Alertmanager - работа с метриками"
+файл конфигурации Alertmanager
+```yaml
+route:
+  group_by: ['alertname']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  receiver: 'telegram'
+  routes:
+  - receiver: "gmail"
+    matchers:
+    - severity = "warning"
+  - receiver: "telegram"
+    matchers:
+    - severity = "critical"
+receivers:
+  - name: 'gmail'
+    email_configs:
+    - to: 'name@yandex.ru'
+      from: 'name@gmail.com'
+      smarthost: smtp.gmail.com:587
+      auth_username: 'name@gmail.com'
+      auth_identity: 'name@gmail.com'
+      auth_password: 'the_password'
+  - name: 'telegram'
+    telegram_configs:
+    - api_url: https://api.telegram.org
+      bot_token: '<bot_token>'
+      chat_id: -00000000000
+```
