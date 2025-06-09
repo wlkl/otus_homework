@@ -26,7 +26,7 @@ scrape_configs:
 ![изображение](https://github.com/user-attachments/assets/5fabd84f-a7f3-493f-994d-33bcbf97e61d)
 
 # ДЗ к уроку "Отказоустойчивость Prometheus, хранилища метрик для Prometheus"
-На ВМ с prometheus установил victoriametrics, конфигурационного файла нет, создал юнит systemd, в нем запускается бинарник victoria-metrics-prod со следующими параметрами:
+На ВМ с prometheus установил victoria-metrics, конфигурационного файла нет, создал юнит systemd, в нем запускается бинарник victoria-metrics-prod со следующими параметрами:
 ```shell
 /usr/local/bin/victoria-metrics-prod -storageDataPath=/var/lib/victoria-metrics-data -httpListenAddr=127.0.0.1:8428 -retentionPeriod=2w
 ```
@@ -83,3 +83,7 @@ receivers:
       bot_token: '<bot_token>'
       chat_id: -00000000000
 ```
+# ДЗ к уроку Grafana - продвинутое использование
+Grafana установлена на хосте рядом с Prometheus и victoria-metrics. В графане создал две папки App и Infra,
+в Infra сделал импорт дашборда для Node Exporter по ID, выбрал источник данных victoria-metrics.
+В папке App так же импортировал дашборды для Nginx, Postgresql и Black Box выбрав источник данных victoria-metrics. 
