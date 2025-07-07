@@ -87,3 +87,10 @@ receivers:
 Grafana установлена на хосте рядом с Prometheus и victoria-metrics. В графане создал две папки App и Infra,
 в Infra сделал импорт дашборда для Node Exporter по ID, выбрал источник данных victoria-metrics.
 В папке App так же импортировал дашборды для Nginx, Postgresql и Black Box выбрав источник данных victoria-metrics. 
+
+# ДЗ к уроку Алертинг с Kapacitor
+На виртуальной машине установил Wordpress, MariaDB, php-fpm, Nginx. Установил InfluxDB v2, создал API Token для Telegraf.
+Установил Telegraf, настроил inputs: cpu, disk, net, mem, system, nginx, tail, mysql. 
+Донастроил mysql и nginx для сбора статистики телеграфом. Настроил outputs influxdb_v2, прописал token, organization, bucket.
+Далее, установил Chronograf и Kapasitor, подключил Chronograf к InfluxDB и Kapasitor. В интерфейсе Chronograf настроил 
+дашборды, добавил alerting rule и настроил его на отсылку сообщений в Telegram.
