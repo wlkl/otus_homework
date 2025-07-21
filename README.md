@@ -94,3 +94,7 @@ Grafana установлена на хосте рядом с Prometheus и victo
 Донастроил mysql и nginx для сбора статистики телеграфом. Настроил outputs influxdb_v2, прописал token, organization, bucket.
 Далее, установил Chronograf и Kapasitor, подключил Chronograf к InfluxDB и Kapasitor. В интерфейсе Chronograf настроил 
 дашборды, добавил alerting rule и настроил его на отсылку сообщений в Telegram.
+
+# ДЗ к уроку Beats - инструменты доставки данных
+На одной ВМ установленны Wordpress, MariaDB, php-fpm, Nginx, filebeat и metricbeat. На второй ВМ Elasticsearch, kibana
+и heartbeat. Конфиги и скриншоты в папке ELK-1.
