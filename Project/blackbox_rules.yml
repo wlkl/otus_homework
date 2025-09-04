@@ -1,0 +1,11 @@
+groups:
+  - name: Blackbox
+    rules:
+    - alert: BlackboxProbeFailed
+      expr: probe_success == 0
+      for: 0m
+      labels:
+        severity: critical
+      annotations:
+        summary: Blackbox probe failed {{ $labels.job }}
+        description: "Probe failed for {{ $labels.instance }}"

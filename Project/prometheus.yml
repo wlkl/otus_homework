@@ -1,0 +1,82 @@
+global:
+  scrape_interval: 60s
+  evaluation_interval: 60s
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - 10.25.12.4:9093
+          - 10.26.12.4:9093
+
+remote_write:
+  - url: http://10.3.12.87:8428/api/v1/write
+
+rule_files:
+  - "blackbox_rules.yml"
+
+scrape_configs:
+  - job_name: "prometheus"
+
+    static_configs:
+      - targets: ["localhost:9090"]
+        labels:
+          app: "prometheus"
+  - job_name: "postfix"
+    static_configs:
+      - targets: ["mx1:9154", "mx2:9154", "mx3:9154"]
+        labels:
+          app: "postfix"
+  - job_name: "node"
+    static_configs:
+      - targets: ["mx1:9100", "mx2:9100", "mx3:9100"]
+  - job_name: 'blackbox_ssh'
+    metrics_path: /probe
+    params:
+      module: [ssh]
+    static_configs:
+      - targets:
+        - mx1:22
+        - mx2:22
+        - mx3:22
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 127.0.0.1:9115
+  - job_name: 'blackbox_smtp'
+    metrics_path: /probe
+    params:
+      module: [smtp_starttls]
+    static_configs:
+      - targets:
+        - mx1:25
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 127.0.0.1:9115
+  - job_name: 'blackbox_imap'
+    metrics_path: /probe
+    params:
+      module: [imap_starttls]
+    static_configs:
+      - targets:
+        - mx1:143
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 127.0.0.1:9115
+  - job_name: 'mysql'
+    static_configs:
+      - targets: ['mx1:9104']
+  - job_name: 'nginx'
+    static_configs:
+      - targets: ['mx1:9113']
