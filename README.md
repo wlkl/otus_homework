@@ -98,3 +98,16 @@ Grafana установлена на хосте рядом с Prometheus и victo
 # ДЗ к уроку Beats - инструменты доставки данных
 На одной ВМ установленны Wordpress, MariaDB, php-fpm, Nginx, filebeat и metricbeat. На второй ВМ Elasticsearch, kibana
 и heartbeat. Конфиги и скриншоты в папке ELK-1.
+
+# ДЗ к уроку Системы агрегации сообщений Logstash/Vector
+Установил на вторую ВМ из предыдущего задания Logstash и подключил к Elasticsearch, конфиг Logstash и скрин логов
+в папке ELK-2.
+
+# ДЗ к уроку Grafana Loki - управление логами и доставка
+На почтовом сервере установил Alloy для сбора логов из maillog, на отдельной ВМ установлены Loki и Grafana.
+В папке LOKI-1 лежат конфиг alloy, loki и скрин из Grafana с логами почтаря.
+
+# ДЗ к уроку Graylog
+На первой ВМ установлены Wordpress, MariaDB, php-fpm, Nginx. На второй ВМ установлен Graylog, Opensearch, mongodb.
+На первую ВМ установил graylog-sidecar, в конфиге прописал адрес Graylog и api_token. В веб интерфейсе Graylog настроил
+sidecar добавив отдельный Filebeat Log Collector для сбора логов от каждого приложения. Скрины в папке GRAYLOG.
