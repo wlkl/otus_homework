@@ -111,3 +111,6 @@ Grafana установлена на хосте рядом с Prometheus и victo
 На первой ВМ установлены Wordpress, MariaDB, php-fpm, Nginx. На второй ВМ установлен Graylog, Opensearch, mongodb.
 На первую ВМ установил graylog-sidecar, в конфиге прописал адрес Graylog и api_token. В веб интерфейсе Graylog настроил
 sidecar добавив отдельный Filebeat Log Collector для сбора логов от каждого приложения. Скрины в папке GRAYLOG.
+
+# ДЗ к уроку Настройка алертинга
+Скрипт и скриншоты в папке ZABBIX, ТГ канал - bots_chat
